@@ -19,7 +19,7 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-[![Apache License][license-shield]][license-url]
+
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -106,11 +106,11 @@ Simply initialize the graph with the number of vertices that you want to generat
 
 50:
 
-[![CookLevin-VertexCover Screen Shot][product-screenshot2]]
+![CookLevin-VertexCover Screen Shot][product-screenshot2]
 
 200:
 
-[![CookLevin-VertexCover Screen Shot][product-screenshot3]]
+![CookLevin-VertexCover Screen Shot][product-screenshot3]
 
 
 
