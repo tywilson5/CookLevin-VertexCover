@@ -1,3 +1,12 @@
+"""
+Tyler Wilson 
+CS373 - Vertex Cover
+
+This program generates a random graph and then solves the vertex cover problem. 
+Using the graph, it creates a CNF formula and then uses the glucose solver to solve it.
+
+"""
+
 from cnf import CNF
 import numpy as np
 import matplotlib.pyplot as plt
@@ -43,6 +52,13 @@ class Graph:
         E = min(E, V*(V-1)//2)
         print("{:.3f} %% edges".format(100*E/(V*(V-1)/2)))
         
+        for i in range(int(V**(5/4))):
+            vertex = np.random.choice(self.K)
+            other_vertex = np.random.choice(self.V)
+            if (other_vertex != vertex):
+                if ((vertex, other_vertex) not in self.edges) & ((other_vertex, vertex) not in self.edges):
+                    self.edges.add((vertex, other_vertex))
+        
         for i in np.random.permutation(len(edges_left))[0:E-V]:
             self.edges.add(edges_left[i])
         print("E: ", len(self.edges))
@@ -70,7 +86,7 @@ class Graph:
         ## Draw the vertex cover
         for i in range(V):
             if i in cover:
-                plt.scatter(x[i], y[i], c='C1', s=150, zorder=101)
+                plt.scatter(x[i], y[i], c='C1', s=100, zorder=101)
         if len(cover) > 0:
             chunk_size = 20
             s = ""
@@ -103,8 +119,9 @@ class Graph:
                     if k != j:
                         cnf.add_clause([((i, j), False), ((i, k), False)])
                     # Each column has at most one 1
-                    if k != i:
+                    if k != i and k < K:
                         cnf.add_clause([((i, j), False), ((k, j), False)])
+
 
     def get_at_least_one(self, cnf):
         """
@@ -119,7 +136,7 @@ class Graph:
         K = self.K
         for i in range(V):
             clause = []
-            for j in range(V): # no clue why but changing this to K makes my vscode crash
+            for j in range(V): #
                 clause.append(((i, j), True))
             cnf.add_clause(clause)
     
@@ -203,7 +220,7 @@ class Graph:
             
         # Step 2: Check that every edge is adjacent to at least one vertex
         #for (i, j) in self.edges:
-            #is_valid = is_valid and (i in perm or j in perm) 
+        #    is_valid = is_valid and (i in perm or j in perm)
             
         # Step 3: Check that every vertex not in perm is adjacent to at least one vertex 
         for v in range(self.K):
