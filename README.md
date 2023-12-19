@@ -162,7 +162,7 @@ Project Link: [https://github.com/tywilson5/CookLevin-VertexCover](https://githu
 [license-shield]: https://img.shields.io/github/license/tywilson5/CookLevin-VertexCover.svg?style=for-the-badge
 [license-url]: https://github.com/tywilson5/CookLevin-VertexCover/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
+[linkedin-url]: https://linkedin.com/in/tyler-wilson-261a95265
 [product-screenshot]: Vertex_cover20.jpg
 [product-screenshot2]: Vertex_cover50.jpg
 [product-screenshot3]: Vertex_cover200.jpg
